@@ -20,6 +20,11 @@
       <input type="text" name="mobile" value="<%= @mobile %>">
     </label>
     
+    <label>
+      <span>Notes</span>
+      <textarea name="notes" rows="8" cols="40"><%= @notes %></textarea>
+    </label>
+    
     <% unless @lon: %>
       <a class="addLocation">Attach Location</a>
     <% else: %>

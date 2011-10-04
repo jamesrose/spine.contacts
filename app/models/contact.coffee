@@ -1,16 +1,17 @@
 Spine = require('spine')
 
 class Contact extends Spine.Model
-  @configure 'Contact', 'name', 'email', 'mobile', 'lat', 'lon'
+  @configure 'Contact', 'name', 'email', 'mobile', 'notes', 'lat', 'lon'
   
   @extend Spine.Model.Local
-  
+      
   @filter: (query) ->
     return @all() unless query
     query = query.toLowerCase()
     @select (item) ->
       item.name?.toLowerCase().indexOf(query) isnt -1 or
       item.email?.toLowerCase().indexOf(query) isnt -1 or
+      item.notes?.toLowerCase().indexOf(query) isnt -1 or
       item.mobile?.indexOf(query) isnt -1
       
   addLocation: ->
